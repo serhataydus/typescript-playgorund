@@ -1,0 +1,43 @@
+name: TypeScript-Playground Project Update Package
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "serhataydus@hotmail.com"
+          git config --global user.name "Serhat Aydus"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Login to npm
+        run: npm login --registry=https://registry.npmjs.org --scope=serhataydus --always-auth --email=serhataydus@hotmail.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Bump Version and Publish
+        run: |
+          git pull
+          git reset --hard HEAD
+          git clean -fd
+          npm version minor
+          npm publish --access public
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.TYPESCRIPTPLAYGORUNDACCESSTOKEN }}" > ~/.npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.TYPESCRIPTPLAYGORUNDACCESSTOKEN }}
