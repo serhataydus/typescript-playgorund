@@ -1,0 +1,17 @@
+export const WhiteSpaceString = " ";
+export const ExclamationMarkString = "!";
+export const DoubleQuotationMarkString = '"';
+export const ApostropheString = "'";
+export const CommaString = ",";
+export const HyphenString = "-";
+export const DotString = ".";
+export const ColonString = ":";
+export const SemicolonString = ";";
+export const QuestionMarkString = "?";
+export const LeftSquareBracketString = "[";
+export const RightSquareBracketString = "]";
+export const UnderscoreString = "_";
+export const LeftCurlyBracketString = "{";
+export const RightCurlyBracketString = "}";
+export const LeftRoundBracket = "(";
+export const RightRoundBracket = ")";
