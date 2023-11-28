@@ -1,22 +1,20 @@
-# A Projesi İçin .github/workflows/build.yml
-name: Build and Deploy A Project
+name: Update Projects
 
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
-  build:
+  update-projects:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Deploy to Next.js Project
+      - name: Update Nextjs-React-Playgorund
         run: |
-          cp -r infrastructure/* path/to/nextjs/
-          cd path/to/nextjs
-          npm install
-          npm run build
+          cd typescript-playgorund
+          npm install https://github.com/serhataydus/nextjs-react-playgorund#dev
+        working-directory: ${{ github.workspace }}
