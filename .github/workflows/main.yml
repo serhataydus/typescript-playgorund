@@ -30,7 +30,7 @@ jobs:
         run: |
           cd ../target-repo
           git init
-          git remote add origin https://github.com/serhataydus/nextjs-react-playgorund.git
+          git remote add origin https://github.com/serhataydus/nextjs-react-playgorund.git#dev
           git add .
           git commit -m "Sync code from Source Repository"
           git push -u --force origin dev
