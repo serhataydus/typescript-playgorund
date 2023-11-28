@@ -28,4 +28,4 @@ jobs:
           git config user.name "Your Name"
           git add .
           git commit -m "Sync code from TypeScript Playground"
-          git push origin main
+          git push origin dev
