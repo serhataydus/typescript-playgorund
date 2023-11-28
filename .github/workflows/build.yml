@@ -1,0 +1,28 @@
+# A Projesi İçin .github/workflows/build.yml
+name: Build and Deploy A Project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Deploy to Next.js Project
+        run: |
+          cp -r dist/* path/to/nextjs/
+          cd path/to/nextjs
+          npm install
+          npm run build
