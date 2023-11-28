@@ -22,5 +22,5 @@ jobs:
             mkdir typescript-playgorund
           fi
 
-          npm install https://github.com/serhataydus/nextjs-react-playgorund#dev
+          npm install https://github.com/serhataydus/typescript-playgorund#dev
         working-directory: ${{ github.workspace }}
