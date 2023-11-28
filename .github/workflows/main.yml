@@ -13,8 +13,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Update Nextjs-React-Playgorund
+      - name: Update X Project
         run: |
           cd typescript-playgorund
+
+          # Check if the directory exists, if not, create it
+          if [ ! -d "typescript-playgorund" ]; then
+            mkdir typescript-playgorund
+          fi
+
           npm install https://github.com/serhataydus/nextjs-react-playgorund#dev
         working-directory: ${{ github.workspace }}
