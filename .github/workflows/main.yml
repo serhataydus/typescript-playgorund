@@ -18,8 +18,8 @@ jobs:
 
       - name: Set up Git in Source Repository
         run: |
-          git config user.email "action@github.com"
-          git config user.name "Github Action"
+          git config user.email "serhataydus@hotmail.com"
+          git config user.name "Serhat Aydus"
 
       - name: Copy Code to Target Repository
         run: |
