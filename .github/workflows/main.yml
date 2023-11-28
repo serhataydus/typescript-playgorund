@@ -3,7 +3,7 @@ name: Update Projects
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   update-projects:
