@@ -23,12 +23,12 @@ jobs:
 
       - name: Copy Code to Target Repository
         run: |
-          mkdir ../typescript-playgorund
-          cp -r * ../typescript-playgorund
+          mkdir ../infrastructure
+          cp -r * ../infrastructure
 
       - name: Set up Git in Target Repository
         run: |
-          cd ../typescript-playgorund
+          cd ../infrastructure
           git init
           git remote add origin https://github.com/serhataydus/nextjs-react-playgorund.git
           git add .
