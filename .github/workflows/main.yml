@@ -16,7 +16,7 @@ jobs:
 
       - name: Deploy to Next.js Project
         run: |
-          cp -r dist/* path/to/nextjs/
+          cp -r infrastructure/* path/to/nextjs/
           cd path/to/nextjs
           npm install
           npm run build
