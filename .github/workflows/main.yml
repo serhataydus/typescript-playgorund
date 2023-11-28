@@ -1,4 +1,4 @@
-name: Sync Code to Next.js React Playground
+name: Sync Code to Another Repository
 
 on:
   push:
@@ -10,22 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout TypeScript Playground
+      - name: Checkout Source Repository
         uses: actions/checkout@v2
         with:
-          repository: serhataydus/typescript-playground
+          repository: serhataydus/typescript-playgorund
           ref: dev
 
-      - name: Copy Code to Next.js React Playground
+      - name: Set up Git in Source Repository
         run: |
-          cp -r ./* ../nextjs-react-playground
-        working-directory: typescript-playground
+          git config user.email "action@github.com"
+          git config user.name "Github Action"
 
-      - name: Commit and Push to Next.js React Playground
+      - name: Copy Code to Target Repository
         run: |
-          cd ../nextjs-react-playground
-          git config user.email "your-email@example.com"
-          git config user.name "Your Name"
+          mkdir ../target-repo
+          cp -r * ../target-repo
+
+      - name: Set up Git in Target Repository
+        run: |
+          cd ../target-repo
+          git init
+          git remote add origin https://github.com/serhataydus/nextjs-react-playgorund.git
           git add .
-          git commit -m "Sync code from TypeScript Playground"
-          git push origin dev
+          git commit -m "Sync code from Source Repository"
+          git push -u --force origin dev
