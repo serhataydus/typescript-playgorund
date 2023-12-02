@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Source Repository
         uses: actions/checkout@v2
         with:
-          repository: serhataydus/typescript-playground # Correct repository name
+          repository: serhataydus/typescript-playgorund # Correct repository name
           ref: dev
 
       - name: Set up Git in Source Repository
