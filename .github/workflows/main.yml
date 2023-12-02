@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Source Repository
         uses: actions/checkout@v2
         with:
-          repository: serhataydus/typescript-playgorund
+          repository: serhataydus/typescript-playground # Correct repository name
           ref: dev
 
       - name: Set up Git in Source Repository
@@ -23,14 +23,14 @@ jobs:
 
       - name: Copy Code to Target Repository
         run: |
-          mkdir ../infrastructure
-          cp -r * ../infrastructure
+          mkdir ../nextjs-react-playground  # Correct target repository name
+          cp -r * ../nextjs-react-playground
 
       - name: Set up Git in Target Repository
         run: |
-          cd ../infrastructure
+          cd ../nextjs-react-playground
           git init
-          git remote add origin https://github.com/serhataydus/nextjs-react-playgorund.git
+          git remote add origin https://github.com/serhataydus/nextjs-react-playground.git  # Correct target repository URL
           git add .
           git commit -m "Sync code from Source Repository"
           git push -u --force origin dev
